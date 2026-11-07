@@ -3,9 +3,9 @@ package ru.yandex.practicum.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import ru.yandex.practicum.kafka.TelemetryKafkaProducer;
 import ru.yandex.practicum.kafka.telemetry.event.*;
 import ru.yandex.practicum.model.hub.*;
-import ru.yandex.practicum.kafka.TelemetryKafkaProducer;
 
 import java.util.List;
 import java.util.stream.Collectors;

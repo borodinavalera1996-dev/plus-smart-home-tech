@@ -8,10 +8,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
-import ru.yandex.practicum.model.sensor.*;
 
 import java.time.Instant;
-import java.time.OffsetDateTime;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
