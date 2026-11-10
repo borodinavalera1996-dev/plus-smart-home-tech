@@ -4,3 +4,6 @@ spring:
     producer:
       properties:
         schema.registry.url: http://localhost:8081
+    topics:
+      sensors: telemetry.sensors.v1
+      hubs: telemetry.hubs.v1
