@@ -1,0 +1,16 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: telemetry-aggregator-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      properties:
+        schema.registry.url: http://localhost:8081
+
+kafka:
+  topics:
+    sensors-events: telemetry.sensors.v1
+    snapshots: telemetry.snapshots.v1
+  consumer:
+    poll-timeout-ms: 100
