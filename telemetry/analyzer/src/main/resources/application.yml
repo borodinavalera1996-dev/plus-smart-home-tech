@@ -1,0 +1,40 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: telemetry-aggregator-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      properties:
+        schema.registry.url: http://localhost:8081
+  datasource:
+    url: jdbc:postgresql://localhost:5432/telemetry_analyzer
+    username: dbuser
+    password: 12345
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none # схему создаёт init-databases.sql; при разработке можно поставить validate
+    show-sql: false # поставьте true, если нужно видеть SQL-запросы в логах при отладке
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  sql:
+    init:
+      mode: never
+kafka:
+  topics:
+    snapshots: telemetry.snapshots.v1
+    hubs-events: telemetry.hubs.v1
+  consumer:
+    poll-timeout-ms: 100
+grpc:
+  client:
+    hub-router:
+      address: 'static://localhost:59090'
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+      negotiationType: plaintext

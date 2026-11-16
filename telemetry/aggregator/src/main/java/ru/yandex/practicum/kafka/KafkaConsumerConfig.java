@@ -7,6 +7,7 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ru.yandex.practicum.avro.SensorEventDeserializer;
 import ru.yandex.practicum.kafka.telemetry.event.SensorEventAvro;
 
 import java.util.HashMap;
@@ -42,11 +43,4 @@ public class KafkaConsumerConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, SensorEventDeserializer.class);
         return new KafkaConsumer<>(props);
     }
-
-//    @Bean(destroyMethod = "close")
-//    public Consumer<String, HubEventAvro> hubConsumer() {
-//        Map<String, Object> props = baseConsumerConfigs();
-//        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, HubEventDeserializer.class);
-//        return new KafkaConsumer<>(props);
-//    }
 }
